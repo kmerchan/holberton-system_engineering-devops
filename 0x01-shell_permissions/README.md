@@ -1,0 +1,1 @@
+This project contains more scripts on how to change permissions in Linux.
