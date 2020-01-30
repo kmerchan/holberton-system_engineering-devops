@@ -1,2 +1,2 @@
 #!/bin/bash
-chmd a+x */
+chmd a+x ./*/
