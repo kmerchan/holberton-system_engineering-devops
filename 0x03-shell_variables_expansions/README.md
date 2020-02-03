@@ -1,0 +1,1 @@
+This is the temporary README.md file for the directory containing scripts that work with variables and extensions.
