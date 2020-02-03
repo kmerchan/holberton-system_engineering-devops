@@ -1,0 +1,1 @@
+This directory covers shell redirection and filters.
