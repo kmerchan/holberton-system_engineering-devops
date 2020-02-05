@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%o\n" $(($(5#($(echo $WATER | tr "{w,a,t,e,r}" "{0,1,2,3,4}")))+4(5#$(echo $STIR | tr "{s,t,i,r,.}" "{0,1,2,3,4}")))))
+printf "%o\n" $(((5#(echo $WATER | tr water 01234)) + (5#(echo $STIR | tr stir. 01234)))) | tr 01234567 behlnort
