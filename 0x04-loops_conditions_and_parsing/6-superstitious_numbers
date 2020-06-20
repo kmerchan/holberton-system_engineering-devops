@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Uses a while loop to display Holberton School and uses
-# if, elif, and else to print bad luck or good luck instead on lines 4 or 8
-i="0"
+# case statements to display which number are bad luck in China, Japan, & Italy
+i="1"
 while [ $i -lt 21 ]; do
     echo $i
     case $i in
