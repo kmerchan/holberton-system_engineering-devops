@@ -8,6 +8,6 @@ while [ $hr -lt 13 ]; do
 	echo $min
 	min=$((min+1))
     done
-    min="0"
+    min="1"
     hr=$((hr+1))
 done
