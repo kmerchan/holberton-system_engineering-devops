@@ -2,5 +2,5 @@
 # install nginx and configures port to listen on and querying return
 apt-get -y update
 apt-get -y install nginx
-echo "Holberton School" > /var/www/html/file.html
+echo "Holberton School" > /var/www/html/index.html
 service nginx restart
