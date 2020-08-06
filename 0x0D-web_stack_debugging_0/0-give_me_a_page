@@ -3,5 +3,6 @@
 # return page with Hello Holberton when querying the root of it
 apt-get -y update
 apt-get -y install apache2
-EXPOSE 80
+echo "ServerName localhost" >> /etc/apache2/apache2.conf
+echo "Hello Holberton"
 service apache2 start
