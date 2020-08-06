@@ -2,5 +2,6 @@
 # redirect of nginx to another page
 apt-get -y update
 apt-get -y install nginx
+echo "Holberton School" > /var/www/html/index.html
 sed -i '/^\tserver_name.*/a rewrite ^/redirect_me https://www.holbertonschool.com/ permanent;' /etc/nginx/sites-available/default
 service nginx restart
