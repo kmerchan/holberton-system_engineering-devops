@@ -3,6 +3,6 @@
 apt-get -y update
 apt-get -y install nginx
 echo "Holberton School" > /var/www/html/index.html
-echo "Ceci n'est pas une page" >> /var/www/html/custom_404.html
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 sed -i '/^\tserver_name.*/a error_page 404 /custom_404.html;\nlocation = /custom_404.html {\nroot /var/www/html/;\ninternal;\n}' /etc/nginx/sites-available/default
 service nginx restart
