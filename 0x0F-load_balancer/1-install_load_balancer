@@ -3,6 +3,10 @@
 sudo apt-get -y update
 sudo apt-get -y install haproxy
 echo -e '
+frontend http
+\tmode http
+\tdefault_backend web_servers
+
 backend web_servers
 \tbalance roundrobin
 \tserver 1708-web-01 35.190.151.203:80 check
