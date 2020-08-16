@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Debugs error where sites-available/default is unlinked to site-enabled/default
+# Debugs error where sites-available/default is unlinked to site-enabled default
 ln -sfn /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sed -i 's|pid /run/nginx.pid|pid /run/nginx_pid|' /etc/nginx/nginx.conf
 service nginx restart
+sed -i 's|pid /run/nginx.pid|pid /run/nginx_pid|' /etc/nginx/nginx.conf
