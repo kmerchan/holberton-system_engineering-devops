@@ -3,9 +3,6 @@
 if [ $# -lt 1 ]
 then
     whoami
-elif [ "$1" = "root" ]
-then
-    sudo su -c whoami "$1"
 else
-    su -c whoami "$1"
+    sudo su -c whoami "$1"
 fi
