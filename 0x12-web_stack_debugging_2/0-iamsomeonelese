@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# runs the whoami command under user passed into script
+if [ $# -lt 1 ]
+then
+    whoami
+else
+    su -c whoami "$1"
+fi
