@@ -1,0 +1,13 @@
+-- MySQL script to set up database with table and data
+-- sets up so it's possible to establish replication
+
+CREATE DATABASE IF NOT EXISTS tyrell_corp;
+USE tyrell_corp;
+CREATE TABLE IF NOT EXISTS nexus6 (
+       id INT,
+       name VARCHAR(256) NOT NULL
+       );
+INSERT INTO nexus6 (id, name) VALUES (0, "T");
+INSERT INTO nexus6 (id, name) VALUES (1, "y");
+GRANT SELECT ON tyrell_corp.nexus6 TO 'holberton_user'@'localhost';
+FLUSH PRIVILEGES;
