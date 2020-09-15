@@ -15,11 +15,12 @@ if __name__ == "__main__":
     done_tasks = []
     all_tasks = requests.get(tasks_URL).json()
     for task in all_tasks:
-        if task.get('completed') == True:
+        if task.get('completed') is True:
             done_tasks.append(task.get('title'))
 
     print("Employee {} is done with tasks ({}/{}):".format(
         employ_name, len(done_tasks), len(all_tasks)))
 
-    for task in done_tasks:
-        print("\t {}".format(task))
+    if len(done_tasks) > 0:
+        for task in done_tasks:
+            print("\t {}".format(task))
