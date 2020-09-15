@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     user_URL = 'https://jsonplaceholder.typicode.com/users/{}'.format(argv[1])
     employee = requests.get(user_URL).json()
-    employ_name = employee.get('name')
+    employ_username = employee.get('username')
 
     tasks_URL = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
         argv[1])
@@ -24,7 +24,7 @@ if __name__ == "__main__":
             csv_writer = csv.writer(f, quoting=csv.QUOTE_ALL)
             values = []
             values.append("{}".format(argv[1]))
-            values.append("{}".format(employ_name))
+            values.append("{}".format(employ_username))
             values.append("{}".format(task.get('completed')))
             values.append("{}".format(task.get('title')))
             csv_writer.writerow(values)
