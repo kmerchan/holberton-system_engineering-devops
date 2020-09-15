@@ -6,7 +6,6 @@ and exports information in CSV format to new file
 if __name__ == "__main__":
     import requests
     from sys import argv
-    import csv
 
     user_URL = 'https://jsonplaceholder.typicode.com/users/{}'.format(argv[1])
     employee = requests.get(user_URL).json()
@@ -21,10 +20,6 @@ if __name__ == "__main__":
         f.write("")
     for task in all_tasks:
         with open(filename, 'a', newline='') as f:
-            csv_writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-            values = []
-            values.append("{}".format(argv[1]))
-            values.append("{}".format(employ_username))
-            values.append("{}".format(task.get('completed')))
-            values.append("{}".format(task.get('title')))
-            csv_writer.writerow(values)
+            f.write('"{}", "{}", "{}", "{}"\n'.format(
+                argv[1], employ_username, task.get('completed'),
+                task.get('title')))
