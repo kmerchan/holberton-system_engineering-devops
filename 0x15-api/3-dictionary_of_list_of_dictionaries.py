@@ -14,7 +14,7 @@ if __name__ == "__main__":
     todo_dict = {}
     for employee in all_employee:
         tURL = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
-        employee.get('id'))
+            employee.get('id'))
         all_tasks = requests.get(tURL).json()
 
         todo_tasks = []
