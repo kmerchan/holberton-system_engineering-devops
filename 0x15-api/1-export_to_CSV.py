@@ -17,6 +17,8 @@ if __name__ == "__main__":
     all_tasks = requests.get(tasks_URL).json()
 
     filename = "{}.csv".format(argv[1])
+    with open(filename, 'w') as f:
+        f.write("")
     for task in all_tasks:
         with open(filename, 'a', newline='') as f:
             csv_writer = csv.writer(f, quoting=csv.QUOTE_ALL)
