@@ -2,6 +2,8 @@
 """
 defines function to query the Reddit API for number of subscribers
 """
+
+
 def number_of_subscribers(subreddit):
     """
     queries the Reddit API
