@@ -20,22 +20,23 @@ def count_words(subreddit, word_list, after=None, count={}):
             subreddit, after)
     subreddit_info = requests.get(sub_URL,
                                   headers={"user-agent": "user"},
-                                  allow_redirects=False).json()
+                                  allow_redirects=False)
     for word in word_list:
         word = word.lower()
         if word not in count.keys():
             count[word] = 0
-    if "data" not in subreddit_info:
-        print()
+    try:
+        data = subreddit_info.json().get("data")
+    except:
         return
-    children = subreddit_info.get("data").get("children")
+    children = data.get("children")
     for child in children:
         title = (child.get("data").get("title").lower())
         title = title.split(' ')
         for word in word_list:
             word = word.lower()
             count[word] += title.count(word)
-    after = subreddit_info.get("data").get("after")
+    after = data.get("after")
     if after is None:
         result = []
         for k in count.keys():
@@ -67,7 +68,5 @@ def count_words(subreddit, word_list, after=None, count={}):
         if result != []:
             for printing in result:
                 print(printing)
-        else:
-            print()
         return
     return (count_words(subreddit, word_list, after, count))
