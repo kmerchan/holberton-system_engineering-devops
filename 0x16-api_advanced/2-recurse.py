@@ -13,10 +13,10 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
     import json
     import requests
     if after is None:
-        sub_URL= 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
+        sub_URL = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     else:
         sub_URL = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(
-        subreddit, after)
+            subreddit, after)
     subreddit_info = requests.get(sub_URL,
                                   headers={"user-agent": "user"},
                                   allow_redirects=False).json()
