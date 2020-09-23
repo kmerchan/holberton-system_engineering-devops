@@ -26,7 +26,8 @@ def count_words(subreddit, word_list, after=None, count={}):
         if word not in count.keys():
             count[word] = 0
     if "data" not in subreddit_info:
-        return None
+        print()
+        return
     children = subreddit_info.get("data").get("children")
     for child in children:
         title = (child.get("data").get("title"))
@@ -34,26 +35,29 @@ def count_words(subreddit, word_list, after=None, count={}):
         for word in title:
             word = word.lower()
             if word in word_list:
-                count[word] += 1;
+                count[word] += 1
     after = subreddit_info.get("data").get("after")
     if after is None:
         result = []
         for k in count.keys():
-            if result == []:
-                result.append("{}: {}".format(k, count[k]))
-            else:
-                for i in range(len(result)):
-                    if count[k] > int(result[i].split(' ')[1]):
-                        result = result[:i] + \
-                                 ["{}: {}".format(k, count[k])] + \
-                                 result[i:]
-                        break;
-                    else:
-                        continue
-                else:
+            if count[k] != 0:
+                if result == []:
                     result.append("{}: {}".format(k, count[k]))
-        for printing in result:
-            if int(printing.split(' ')[1]) != 0:
+                else:
+                    for i in range(len(result)):
+                        if count[k] > int(result[i].split(' ')[1]):
+                            result = result[:i] + \
+                                     ["{}: {}".format(k, count[k])] + \
+                                     result[i:]
+                            break
+                        else:
+                            continue
+                    else:
+                        result.append("{}: {}".format(k, count[k]))
+        if result != []:
+            for printing in result:
                 print(printing)
+        else:
+            print()
         return
     return (count_words(subreddit, word_list, after, count))
