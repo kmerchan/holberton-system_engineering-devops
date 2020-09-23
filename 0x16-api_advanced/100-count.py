@@ -30,12 +30,11 @@ def count_words(subreddit, word_list, after=None, count={}):
         return
     children = subreddit_info.get("data").get("children")
     for child in children:
-        title = (child.get("data").get("title"))
+        title = (child.get("data").get("title").lower())
         title = title.split(' ')
-        for word in title:
+        for word in word_list:
             word = word.lower()
-            if word in word_list:
-                count[word] += 1
+            count[word] += title.count(word)
     after = subreddit_info.get("data").get("after")
     if after is None:
         result = []
